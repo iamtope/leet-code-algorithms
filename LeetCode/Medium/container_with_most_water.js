@@ -31,7 +31,7 @@ const height =  [2,1]
 maxArea(height);
 
 
-// Two pointer Approach (Python)
+// Two pointer Approach (Leet Code Python Solution)
 // How this approach works?
 
 // class Solution:
@@ -60,3 +60,34 @@ maxArea(height);
 // Time complexity: O(n)O(n). Single pass.
 
 // Space complexity: O(1)O(1). Constant space is used.
+
+/**
+ * Javascript Implementation of the Leetcode solution
+ */
+ var maxArea = function (height) {
+    let left = 0;
+    right = height.length - 1;
+    let area = 0;
+    while (left < right) {
+      width =  right - left;
+  
+      let hl = height[left];
+      let hr = height[right];
+  
+      let l = Math.min(hl, hr);
+      let theArea = l * width;
+      area = Math.max(area, theArea)
+  
+      if(hl > hr){
+          right -= 1
+      }
+      else{
+          left += 1
+      }
+    }
+  //   console.log(area);
+    return area
+  };
+  
+  maxArea([1,2,5,6,7,8])
+  
